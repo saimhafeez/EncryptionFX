@@ -1,0 +1,10 @@
+.windowsAction_Buttons{
+    -fx-background-size: 30;
+    -fx-background-position: center, center;
+    -fx-background-repeat: no-repeat no-repeat;
+    -fx-background-color: white;
+}
+
+#minimize_Button{
+    -fx-background-image: url("images/minimize.png");
+}

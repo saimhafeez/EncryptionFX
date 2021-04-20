@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<GridPane fx:id="main_GridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hacktivist.menuGUI.controller.MenuGUI_controller">
+<GridPane fx:id="main_GridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: none;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hacktivist.menuGUI.controller.MenuGUI_controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="192.0" minHeight="8.666671752929688" prefHeight="28.66667366027832" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="391.3333282470703" minHeight="3.6666666666666714" prefHeight="7.666666666666668" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="391.3333282470703" minHeight="10.0" prefHeight="364.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="391.3333282470703" minHeight="3.6666666666666714" prefHeight="5.9999999999999964" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="391.3333282470703" minHeight="10.0" prefHeight="366.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;">

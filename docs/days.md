@@ -1,11 +1,18 @@
-<h1>Day 01</h1>
-<h3>April 19 2021</h3>
-<p>KeyNotes</p>
-<ul>
-    <li>Basic GUI</li>
-    <li>Made packages</li>
-    <li>Add background transparency by<br>
-        making the sceneFill and StageStyle<br>
-        to TRANSPARENT</li>
-    <li>Added CSS to exit and minimize buttons</li></li>
-</ul>
+#Day 01
+##April 19 2021
+###KeyNotes
+- Basic GUI
+- Made packages
+- Add background transparency by making the sceneFill and StageStyle to TRANSPARENT (`Update: [April 21 2021] -- Does not work now, to make it work had to add css to the GridPane or the main stage {-fx-background-color: none}`)
+- Added CSS to exit and minimize buttons
+
+#Day 02
+##April 20 2021
+###KeyNotes
+- Tried to implement a splash screen / loading screen but didn't work for now.
+
+#Day 03
+##April 21 2021
+###KeyNotes
+- Make static primary class to work with splash screen (for changing the scene to main menu after certain timer event has been completed)
+- The splash Screen works Now 

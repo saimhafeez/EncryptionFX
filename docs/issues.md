@@ -1,22 +1,32 @@
-<h1>Unsolved Issues</h1>
-<table>
-  <tr>
-    <th>Issue</th>
-    <th>Status</th>
-    <th>Possible Solution</th>
-  </tr>
-  <tr>
-    <td>Gives warning upon startup
-     <br><b>WARNING: Unsupported JavaFX configuration: <br> classes were loaded from 'unnamed module @deab04e'</b></td>
-    <td>Unsolved</td>
-    <td>null</td>
-  </tr>
-  <tr>
-    <td>Occurs while assigning a background image to a button<br>
-    <b>WARNING: Error loading image: <br>
-    com.sun.javafx.css.StyleManager$ImageCache <br> getCachedImage</b></td>
-    <td>Solved <sub>April 19 2021</sub></td>
-    <td> <p>On SceneBuilder select button and tick on cache </p></td>
-  </tr>
+#Unsolved Issues
+### (* _ *)
 
-</table>
+### 01
+- Gives warning upon startup 
+  `WARNING: Unsupported JavaFX configuration: classes were loaded from 'unnamed module @deab04e'`
+
+- Issue Registered At `April 19 2021`
+
+#Solved
+### :)
+
+### 01
+- Occurs while assigning a background image to a button
+  `WARNING: Error loading image: com.sun.javafx.css.StyleManager$ImageCache getCachedImage`
+  
+- Possible Solution `On SceneBuilder select button and tick on cache`
+
+- Issue Registered At `April 19 2021`
+
+- Solved At `April 19 2021`
+
+### 02
+- Occurred a null exception error while implementing the scene change from splash Screen to Main Menu
+  `Exception in thread "main" java.lang.NullPointerException: progressbar is null`
+
+- Possible Solution `Because i was creating a new object from the main menu therefore if created a new progressbar and the other elements which were null at start
+  so by using a static method and static variable to store progressbar the error was solved`
+
+- Issue Registered At `April 20 2021`
+
+- Solved At `April 21 2021`

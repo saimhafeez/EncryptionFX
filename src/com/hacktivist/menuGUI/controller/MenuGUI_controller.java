@@ -10,9 +10,4 @@ public class MenuGUI_controller {
     public void initialize(){
 
     }
-
-
-    private void initializeMenuBar(){
-        
-    }
 }

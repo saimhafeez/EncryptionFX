@@ -2,9 +2,25 @@
     -fx-background-size: 30;
     -fx-background-position: center, center;
     -fx-background-repeat: no-repeat no-repeat;
-    -fx-background-color: white;
+    -fx-background-color: none;
 }
 
 #minimize_Button{
     -fx-background-image: url("images/minimize.png");
+}
+
+#minimize_Button:hover{
+    -fx-background-image: url("images/minimize_hover.png");
+}
+
+#top_bar{
+    -fx-background-color: #98c1d9;
+}
+
+#menu_button{
+    -fx-background-image: url("images/menu.png");
+}
+
+#menu_button:hover{
+    -fx-background-image: url("images/menu_hover.png");
 }

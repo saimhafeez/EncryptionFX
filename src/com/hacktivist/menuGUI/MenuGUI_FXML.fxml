@@ -19,9 +19,9 @@
     <RowConstraints maxHeight="391.3333282470703" minHeight="10.0" prefHeight="366.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;">
+      <AnchorPane id="top_bar" prefHeight="200.0" prefWidth="200.0" stylesheets="@MenuGUI_Styles.css">
          <children>
-            <HBox alignment="CENTER_RIGHT" layoutY="-36.0" prefHeight="29.0" prefWidth="170.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER_RIGHT" layoutY="-36.0" prefHeight="29.0" prefWidth="170.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button id="minimize_Button" cache="true" mnemonicParsing="false" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
                      <HBox.margin>
@@ -34,8 +34,32 @@
                      </HBox.margin>
                   </Button>
                </children></HBox>
+            <HBox layoutX="-61.0" layoutY="-35.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button id="menu_button" cache="true" mnemonicParsing="false" onAction="#menuBtn_Action" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
-      <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.rowIndex="2" />
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+         <children>
+            <AnchorPane fx:id="stackpane_home" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;" />
+            <GridPane fx:id="stackpane_nav" style="-fx-background-color: none;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.66668701171875" minWidth="10.0" prefWidth="225.3333740234375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.6666259765625" minWidth="10.0" prefWidth="374.6666259765625" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+               </children>
+            </GridPane>
+         </children></StackPane>
    </children>
 </GridPane>

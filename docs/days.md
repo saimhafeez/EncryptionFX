@@ -39,3 +39,13 @@
 - Added Children panes in Stackpane.
   
 - Added navigation button function and pane 
+
+# Day 05
+
+## April 26 2021
+
+### KeyNotes
+
+- Made `slidePane` and `fadePane` methods for animation
+
+- Set the Animation of Menu bar button event

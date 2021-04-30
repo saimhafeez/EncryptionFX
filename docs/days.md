@@ -49,3 +49,13 @@
 - Made `slidePane` and `fadePane` methods for animation
 
 - Set the Animation of Menu bar button event
+
+# Day 06
+
+## May 1st 2021
+
+### KeyNotes
+
+- Added `message pane` `keys class` `LoadEncryptKeys`
+
+- Made Methods to `save keys` `load keys` 

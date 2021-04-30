@@ -4,38 +4,43 @@ import com.hacktivist.main.Main;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+import java.io.File;
+
 public class MenuGUI_controller {
+
     private int count = 1;
+    @FXML
+    private AnchorPane stackpane_msgEnc;
     @FXML
     private GridPane stackpane_nav;
     @FXML
     private AnchorPane stackpane_home;
+    @FXML
+    private ImageView slideShow_ImageView;
+    private int imageCount = 0;
 
     public void initialize(){
         stackpane_home.toFront();
+        startupSlideShow();
+        stackpane_msgEnc.toFront();
+
     }
 
     @FXML
     private void menuBtn_Action(ActionEvent actionEvent) {
-        if(count%2 != 0){
-            //stackpane_nav.translateXProperty().set(-Main.strprimaryStage.getWidth());
-            //stackpane_nav.toFront();
-            //Timeline timeline = new Timeline();
-            //KeyValue kv = new KeyValue(stackpane_nav.translateXProperty(), 0, Interpolator.EASE_BOTH);
-            //KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-            //timeline.getKeyFrames().add(kf);
-            //timeline.play();
-            //fadePane(stackpane_nav, 0);
+        if(count == 0){
             slidePane(stackpane_nav, 4, Main.strprimaryStage.getWidth(), 1);
-            count++;
+            count = 1;
         }else{
             fadePane(stackpane_nav,1);
-            count++;
+            count = 0;
         }
 
     }
@@ -95,5 +100,21 @@ public class MenuGUI_controller {
             fadeOutTransition.setToValue(1);
         }
         fadeOutTransition.play();
+    }
+
+    private void startupSlideShow(){
+        String[] photos = {"slide01.jpg", "slide02.jpg", "slide03.jpg"};
+        Timeline slideshowTimeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+            if(imageCount != 3){
+                File file = new File("src/com/hacktivist/menuGUI/images/" + photos[imageCount]);
+                Image image = new Image(file.toURI().toString());
+                slideShow_ImageView.setImage(image);
+                imageCount++;
+            }else{
+                imageCount = 0;
+            }
+        }));
+        slideshowTimeline.setCycleCount(Timeline.INDEFINITE);
+        slideshowTimeline.play();
     }
 }

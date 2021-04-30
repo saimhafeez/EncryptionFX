@@ -2,12 +2,17 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <GridPane fx:id="main_GridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: none;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hacktivist.menuGUI.controller.MenuGUI_controller">
   <columnConstraints>
@@ -21,7 +26,7 @@
    <children>
       <AnchorPane id="top_bar" prefHeight="200.0" prefWidth="200.0" stylesheets="@MenuGUI_Styles.css">
          <children>
-            <HBox alignment="CENTER_RIGHT" layoutY="-36.0" prefHeight="29.0" prefWidth="170.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER_RIGHT" layoutX="547.0" layoutY="-36.0" prefHeight="29.0" prefWidth="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button id="minimize_Button" cache="true" mnemonicParsing="false" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
                      <HBox.margin>
@@ -34,7 +39,7 @@
                      </HBox.margin>
                   </Button>
                </children></HBox>
-            <HBox layoutX="-61.0" layoutY="-35.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
+            <HBox layoutX="-61.0" layoutY="-35.0" prefHeight="29.0" prefWidth="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="547.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button id="menu_button" cache="true" mnemonicParsing="false" onAction="#menuBtn_Action" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
                      <HBox.margin>
@@ -47,7 +52,6 @@
       </AnchorPane>
       <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <AnchorPane fx:id="stackpane_home" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;" />
             <GridPane fx:id="stackpane_nav" style="-fx-background-color: none;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.66668701171875" minWidth="10.0" prefWidth="225.3333740234375" />
@@ -60,6 +64,24 @@
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                </children>
             </GridPane>
+            <AnchorPane fx:id="stackpane_home" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;">
+               <children>
+                  <ImageView fx:id="slideShow_ImageView" fitHeight="366.0" fitWidth="600.0" layoutX="200.0" layoutY="108.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
+            <AnchorPane fx:id="stackpane_msgEnc" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+               <children>
+                  <Label alignment="CENTER" layoutX="231.0" layoutY="5.0" prefHeight="17.0" prefWidth="139.0" text="Message Encryption" textAlignment="CENTER" AnchorPane.leftAnchor="231.0" AnchorPane.rightAnchor="230.0">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="5.0" layoutY="22.0" prefHeight="125.0" prefWidth="590.0" style="-fx-background-color: none;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                     <content>
+                        <TextArea id="messageEnc_textArea" prefHeight="122.0" prefWidth="585.0" stylesheets="@MenuGUI_Styles.css" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
          </children></StackPane>
    </children>
 </GridPane>

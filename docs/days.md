@@ -59,3 +59,13 @@
 - Added `message pane` `keys class` `LoadEncryptKeys`
 
 - Made Methods to `save keys` `load keys` 
+
+# Day 07
+
+## May 5th 2021
+
+### KeyNotes
+
+- Worked on `Message Encryption Pane`
+
+- Coded `Action event for passwordField and RadioButton Check`

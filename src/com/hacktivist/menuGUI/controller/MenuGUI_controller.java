@@ -4,6 +4,8 @@ import com.hacktivist.main.Main;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -15,7 +17,7 @@ import java.io.File;
 
 public class MenuGUI_controller {
 
-    private int count = 1;
+    private int count;
     @FXML
     private AnchorPane stackpane_msgEnc;
     @FXML
@@ -24,12 +26,17 @@ public class MenuGUI_controller {
     private AnchorPane stackpane_home;
     @FXML
     private ImageView slideShow_ImageView;
+    @FXML
+    private PasswordField msgEncPass_passwordField;
+    @FXML
+    private RadioButton masEncPass_radioButton;
     private int imageCount = 0;
 
     public void initialize(){
         stackpane_home.toFront();
         startupSlideShow();
         stackpane_msgEnc.toFront();
+        masEncPassCheck_action(null);
 
     }
 
@@ -49,16 +56,16 @@ public class MenuGUI_controller {
         KeyValue kv = null;
         if (direction == 1){
             pane.translateYProperty().set(initialPoint); // Upward
-            kv = new KeyValue(pane.translateYProperty(), 0, Interpolator.EASE_BOTH);
+            kv = new KeyValue(pane.translateYProperty(), 0, Interpolator.EASE_IN);
         }else if(direction == 2){
             pane.translateYProperty().set(-initialPoint);  // downward
-            kv = new KeyValue(pane.translateYProperty(), 0, Interpolator.EASE_BOTH);
+            kv = new KeyValue(pane.translateYProperty(), 0, Interpolator.EASE_IN);
         }else if(direction == 3){
             pane.translateXProperty().set(initialPoint);  //right
-            kv = new KeyValue(pane.translateXProperty(), 0, Interpolator.EASE_BOTH);
+            kv = new KeyValue(pane.translateXProperty(), 0, Interpolator.EASE_IN);
         }else if(direction == 4){
             pane.translateXProperty().set(-initialPoint); //left
-            kv = new KeyValue(pane.translateXProperty(), 0, Interpolator.EASE_BOTH);
+            kv = new KeyValue(pane.translateXProperty(), 0, Interpolator.EASE_IN);
         }else {
             System.out.println("invalid argument");
         }
@@ -116,5 +123,14 @@ public class MenuGUI_controller {
         }));
         slideshowTimeline.setCycleCount(Timeline.INDEFINITE);
         slideshowTimeline.play();
+    }
+
+    @FXML
+    private void masEncPassCheck_action(ActionEvent actionEvent) {
+        if(masEncPass_radioButton.isSelected()){
+            msgEncPass_passwordField.setVisible(true);
+        }else{
+            msgEncPass_passwordField.setVisible(false);
+        }
     }
 }

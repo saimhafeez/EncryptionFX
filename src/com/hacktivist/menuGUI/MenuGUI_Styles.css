@@ -28,3 +28,8 @@
 #messageEnc_textArea{
     -fx-border-color: #05ac7d;
 }
+
+#navBar_anchorpane{
+    -fx-background-color: black;
+    -fx-opacity: 80%;
+}

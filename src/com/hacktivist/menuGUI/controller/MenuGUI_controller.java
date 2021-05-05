@@ -4,10 +4,13 @@ import com.hacktivist.main.Main;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -17,7 +20,17 @@ import java.io.File;
 
 public class MenuGUI_controller {
 
+    public Button encrypt_button;
     private int count;
+    private int imageCount = 0;
+    private boolean msgEncCheckList01;
+    private boolean msgEncCheckList02;
+    @FXML
+    private ImageView passCheckList_imageView;
+    @FXML
+    private Label msgEncCheckList_Label01;
+    @FXML
+    private Label msgEncCheckList_Label02;
     @FXML
     private AnchorPane stackpane_msgEnc;
     @FXML
@@ -30,13 +43,13 @@ public class MenuGUI_controller {
     private PasswordField msgEncPass_passwordField;
     @FXML
     private RadioButton masEncPass_radioButton;
-    private int imageCount = 0;
 
     public void initialize(){
         stackpane_home.toFront();
         startupSlideShow();
         stackpane_msgEnc.toFront();
         masEncPassCheck_action(null);
+        checkPasswordRecommendation(null);
 
     }
 
@@ -129,8 +142,56 @@ public class MenuGUI_controller {
     private void masEncPassCheck_action(ActionEvent actionEvent) {
         if(masEncPass_radioButton.isSelected()){
             msgEncPass_passwordField.setVisible(true);
+            msgEncCheckList_Label01.setVisible(true);
+            msgEncCheckList_Label02.setVisible(true);
+            // Enable or Disable the Encrypt Button According to Password Check List
+            if(msgEncCheckList01 && msgEncCheckList02){
+                encrypt_button.setDisable(false);
+                //passCheckList_imageView.setVisible(false);
+            }else {
+                encrypt_button.setDisable(true);
+                //passCheckList_imageView.setVisible(true);
+            }
+
         }else{
             msgEncPass_passwordField.setVisible(false);
+            msgEncCheckList_Label01.setVisible(false);
+            msgEncCheckList_Label02.setVisible(false);
+            encrypt_button.setDisable(false);
+        }
+    }
+
+    @FXML
+    private void checkPasswordRecommendation(KeyEvent inputMethodEvent) {
+        if(msgEncPass_passwordField.getText().length() != 8){
+            msgEncCheckList_Label01.setStyle("-fx-text-fill: red");
+            msgEncCheckList01 = false;
+        }else{
+            msgEncCheckList_Label01.setStyle("-fx-text-fill: green");
+            msgEncCheckList01 = true;
+        }
+        String passText = msgEncPass_passwordField.getText();
+        boolean state = false;
+        for(int i=0; i<passText.length(); i++){
+            if(passText.charAt(i) != passText.charAt(0)){
+                state = true;
+            }else{
+                state = false;
+            }
+        }
+        if(state && msgEncPass_passwordField.getText().length() == 8){
+            msgEncCheckList_Label02.setStyle("-fx-text-fill: green");
+            msgEncCheckList02 = true;
+        }else{
+            msgEncCheckList_Label02.setStyle("-fx-text-fill: red");
+            msgEncCheckList02 = false;
+        }
+        if(msgEncCheckList01 && msgEncCheckList02){
+            encrypt_button.setDisable(false);
+            //passCheckList_imageView.setVisible(false);
+        }else {
+            encrypt_button.setDisable(true);
+            //passCheckList_imageView.setVisible(true);
         }
     }
 }

@@ -69,3 +69,15 @@
 - Worked on `Message Encryption Pane`
 
 - Coded `Action event for passwordField and RadioButton Check`
+
+# Day 08
+
+## May 6th 2021
+
+### KeyNotes
+
+- Worked on checklist for password
+
+- Coded and added Encrypt button disable and enable
+
+- Tried to add `warning image` if one or both conditions of check list are not met

@@ -1,4 +1,4 @@
-#Unsolved Issues
+# Unsolved Issues
 
 ### (* _ *)
 
@@ -8,7 +8,13 @@
 
 - Issue Registered At `April 19 2021`
 
-#Solved
+### 02
+- Not being able to display `CheckListWarning_ImageView`
+  `Won't Show at All`
+
+- Issue Registered At `May 6 2021`
+
+# Solved
 
 ### :)
 

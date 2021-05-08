@@ -81,3 +81,15 @@
 - Coded and added Encrypt button disable and enable
 
 - Tried to add `warning image` if one or both conditions of check list are not met
+
+# Day 09
+
+## May 8-9th 2021
+
+### KeyNotes
+
+- Added Animations with `AnimateFx` repos
+
+- Working `Encrypt Message` Feature
+
+- Working `Navigation Menu` with `Animation`

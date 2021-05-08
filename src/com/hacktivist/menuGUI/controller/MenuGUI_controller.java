@@ -1,13 +1,11 @@
 package com.hacktivist.menuGUI.controller;
 
+import com.hacktivist.animateFX.*;
 import com.hacktivist.main.Main;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -20,11 +18,16 @@ import java.io.File;
 
 public class MenuGUI_controller {
 
-    public Button encrypt_button;
     private int count;
     private int imageCount = 0;
     private boolean msgEncCheckList01;
     private boolean msgEncCheckList02;
+    @FXML
+    private TextArea msgEncryption_textArea;
+    @FXML
+    private Button encrypt_button;
+    @FXML
+    private TextArea encMessage_textArea;
     @FXML
     private ImageView passCheckList_imageView;
     @FXML
@@ -47,19 +50,26 @@ public class MenuGUI_controller {
     public void initialize(){
         stackpane_home.toFront();
         startupSlideShow();
-        stackpane_msgEnc.toFront();
-        masEncPassCheck_action(null);
+        masEncPass_radioButton.setSelected(true);
+        msgEncPassCheck_action(null);
         checkPasswordRecommendation(null);
-
+        Tooltip.install(passCheckList_imageView, new Tooltip("Requirements Don't Meet!"));
+        Main.encryptMessage.storeKeys();
     }
 
     @FXML
     private void menuBtn_Action(ActionEvent actionEvent) {
         if(count == 0){
-            slidePane(stackpane_nav, 4, Main.strprimaryStage.getWidth(), 1);
+            new SlideInLeft(stackpane_nav).play();
+            stackpane_nav.toFront();
+            //slidePane(stackpane_nav, 4, Main.strprimaryStage.getWidth(), 1);
             count = 1;
         }else{
-            fadePane(stackpane_nav,1);
+            new SlideOutLeft(stackpane_nav).play();
+            new SlideInLeft(stackpane_nav).setOnFinished(event ->{
+                stackpane_nav.toBack();
+            });
+            //fadePane(stackpane_nav,1);
             count = 0;
         }
 
@@ -123,8 +133,11 @@ public class MenuGUI_controller {
     }
 
     private void startupSlideShow(){
+        File file1 = new File("src/com/hacktivist/menuGUI/images/slide01.jpg");
+        Image image1 = new Image(file1.toURI().toString());
+        slideShow_ImageView.setImage(image1);
         String[] photos = {"slide01.jpg", "slide02.jpg", "slide03.jpg"};
-        Timeline slideshowTimeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+        Timeline slideshowTimeline = new Timeline(new KeyFrame(Duration.seconds(8), event -> {
             if(imageCount != 3){
                 File file = new File("src/com/hacktivist/menuGUI/images/" + photos[imageCount]);
                 Image image = new Image(file.toURI().toString());
@@ -139,7 +152,7 @@ public class MenuGUI_controller {
     }
 
     @FXML
-    private void masEncPassCheck_action(ActionEvent actionEvent) {
+    private void msgEncPassCheck_action(ActionEvent actionEvent) {
         if(masEncPass_radioButton.isSelected()){
             msgEncPass_passwordField.setVisible(true);
             msgEncCheckList_Label01.setVisible(true);
@@ -147,10 +160,10 @@ public class MenuGUI_controller {
             // Enable or Disable the Encrypt Button According to Password Check List
             if(msgEncCheckList01 && msgEncCheckList02){
                 encrypt_button.setDisable(false);
-                //passCheckList_imageView.setVisible(false);
+                passCheckList_imageView.setVisible(false);
             }else {
                 encrypt_button.setDisable(true);
-                //passCheckList_imageView.setVisible(true);
+                passCheckList_imageView.setVisible(true);
             }
 
         }else{
@@ -158,6 +171,7 @@ public class MenuGUI_controller {
             msgEncCheckList_Label01.setVisible(false);
             msgEncCheckList_Label02.setVisible(false);
             encrypt_button.setDisable(false);
+            passCheckList_imageView.setVisible(false);
         }
     }
 
@@ -188,10 +202,40 @@ public class MenuGUI_controller {
         }
         if(msgEncCheckList01 && msgEncCheckList02){
             encrypt_button.setDisable(false);
-            //passCheckList_imageView.setVisible(false);
+            passCheckList_imageView.setVisible(false);
         }else {
             encrypt_button.setDisable(true);
-            //passCheckList_imageView.setVisible(true);
+            passCheckList_imageView.setVisible(true);
         }
+    }
+
+    public void encryptMessage_action(ActionEvent actionEvent) {
+        String userMessage = msgEncryption_textArea.getText();
+        if(masEncPass_radioButton.isSelected()){
+            System.out.println(msgEncPass_passwordField.getText());
+            userMessage = userMessage.concat(msgEncPass_passwordField.getText());
+        }
+        String temp = Main.encryptMessage.getEncryptMsg(userMessage);
+        encMessage_textArea.setText(temp);
+        System.out.println(temp);
+    }
+
+    public void navigate_home(ActionEvent actionEvent) {
+        SlideOutLeft slideOutLeft = new SlideOutLeft(stackpane_nav);
+        slideOutLeft.play();
+        slideOutLeft.setOnFinished(actionEvent1 -> {
+            stackpane_home.toFront();
+            count = 0;
+        });
+
+    }
+
+    public void navigate_msgEnc(ActionEvent actionEvent) {
+        SlideOutLeft slideOutLeft = new SlideOutLeft(stackpane_nav);
+        slideOutLeft.play();
+        slideOutLeft.setOnFinished(actionEvent1 -> {
+            stackpane_msgEnc.toFront();
+            count = 0;
+        });
     }
 }

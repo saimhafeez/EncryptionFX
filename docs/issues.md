@@ -8,12 +8,6 @@
 
 - Issue Registered At `April 19 2021`
 
-### 02
-- Not being able to display `CheckListWarning_ImageView`
-  `Won't Show at All`
-
-- Issue Registered At `May 6 2021`
-
 # Solved
 
 ### :)
@@ -38,3 +32,13 @@
 - Issue Registered At `April 20 2021`
 
 - Solved At `April 21 2021`
+
+### 03
+- Not being able to display `CheckListWarning_ImageView`
+  `Won't Show at All`
+
+- Possible Solution `Restarted the IDE Fixed it`
+  
+- Issue Registered At `May 6 2021`
+
+- Solved At `May 8 2021`

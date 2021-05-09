@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="main_GridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: none;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hacktivist.menuGUI.controller.MenuGUI_controller">
+<GridPane fx:id="main_GridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: none;" stylesheets="@MenuGUI_Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hacktivist.menuGUI.controller.MenuGUI_controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -27,16 +28,16 @@
     <RowConstraints maxHeight="391.3333282470703" minHeight="10.0" prefHeight="366.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <AnchorPane id="top_bar" prefHeight="200.0" prefWidth="200.0" stylesheets="@MenuGUI_Styles.css">
+      <AnchorPane id="top_bar" prefHeight="52.0" prefWidth="600.0" stylesheets="@MenuGUI_Styles.css">
          <children>
-            <HBox alignment="CENTER_RIGHT" layoutX="547.0" layoutY="-36.0" prefHeight="29.0" prefWidth="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER_RIGHT" layoutX="528.0" layoutY="-36.0" prefHeight="29.0" prefWidth="72.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="528.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button id="minimize_Button" cache="true" mnemonicParsing="false" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
+                  <Button id="minimize_button" cache="true" mnemonicParsing="false" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
                      <HBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button id="exit_Button" mnemonicParsing="false" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
+                  <Button id="exit_button" cache="true" mnemonicParsing="false" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
                      <HBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </HBox.margin>
@@ -44,7 +45,7 @@
                </children></HBox>
             <HBox layoutX="-61.0" layoutY="-35.0" prefHeight="29.0" prefWidth="53.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="547.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button id="menu_button" cache="true" mnemonicParsing="false" onAction="#menuBtn_Action" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
+                  <Button id="navbar_button" cache="true" mnemonicParsing="false" onAction="#menuBtn_Action" prefWidth="30.0" styleClass="windowsAction_Buttons" stylesheets="@MenuGUI_Styles.css">
                      <HBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </HBox.margin>
@@ -55,26 +56,19 @@
       </AnchorPane>
       <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <GridPane fx:id="stackpane_nav" style="-fx-background-color: none;">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.66668701171875" minWidth="10.0" prefWidth="225.3333740234375" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.6666259765625" minWidth="10.0" prefWidth="374.6666259765625" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <AnchorPane id="navBar_anchorpane" prefHeight="200.0" prefWidth="200.0" stylesheets="@MenuGUI_Styles.css">
-                     <children>
-                        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigate_home" prefHeight="25.0" prefWidth="206.0" text="Home" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="15.0" />
-                        <Button layoutX="5.0" layoutY="52.0" mnemonicParsing="false" onAction="#navigate_msgEnc" prefHeight="25.0" prefWidth="206.0" text="Encrypt Message" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="52.0" />
-                     </children></AnchorPane>
-               </children>
-            </GridPane>
             <AnchorPane fx:id="stackpane_home" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;">
                <children>
                   <ImageView fx:id="slideShow_ImageView" fitHeight="366.0" fitWidth="600.0" layoutX="200.0" layoutY="108.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children></AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="242.0" layoutY="6.0" text="Decrypt Message" AnchorPane.topAnchor="6.0">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="stackpane_msgEnc" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
                <children>
                   <Label alignment="CENTER" layoutX="231.0" layoutY="5.0" prefHeight="17.0" prefWidth="139.0" text="Message Encryption" textAlignment="CENTER" AnchorPane.leftAnchor="231.0" AnchorPane.rightAnchor="230.0">
@@ -105,15 +99,52 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <GridPane fx:id="stackpane_nav" style="-fx-background-color: none;" stylesheets="@MenuGUI_Styles.css">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.66668701171875" minWidth="10.0" prefWidth="225.3333740234375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.6666259765625" minWidth="10.0" prefWidth="374.6666259765625" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Label layoutX="242.0" layoutY="6.0" text="Decrypt Message" AnchorPane.topAnchor="6.0">
-                     <font>
-                        <Font name="Verdana Bold" size="12.0" />
-                     </font>
-                  </Label>
+                  <AnchorPane id="navigationRightPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@MenuGUI_Styles.css" GridPane.columnIndex="1" />
+                  <AnchorPane id="navBar_anchorpane" prefHeight="200.0" prefWidth="200.0" stylesheets="@MenuGUI_Styles.css">
+                     <children>
+                        <ImageView fitHeight="366.0" fitWidth="226.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@images/navbar_background.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigate_home" prefHeight="25.0" prefWidth="206.0" stylesheets="@MenuGUI_Styles.css" text="Home" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="15.0">
+                           <styleClass>
+                              <String fx:value="navBtn" />
+                              <String fx:value="navBtn1" />
+                           </styleClass>
+                           <graphic>
+                              <ImageView cache="true" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true"><image>
+                                 <Image url="@images/home.png" />
+                              </image></ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                        <Button layoutX="35.0" layoutY="58.0" mnemonicParsing="false" onAction="#navigate_msgEnc" prefHeight="25.0" prefWidth="206.0" stylesheets="@MenuGUI_Styles.css" text="Encrypt Message" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="58.0">
+                           <styleClass>
+                              <String fx:value="navBtn" />
+                              <String fx:value="navBtn2" />
+                           </styleClass>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView cache="true" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <Image url="@images/encrypt.png" />
+                              </ImageView>
+                           </graphic></Button>
+                     </children></AnchorPane>
                </children>
-            </AnchorPane>
+            </GridPane>
          </children></StackPane>
    </children>
 </GridPane>

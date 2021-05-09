@@ -1,28 +1,40 @@
 .windowsAction_Buttons{
-    -fx-background-size: 30;
+    -fx-background-size: 25;
     -fx-background-position: center, center;
     -fx-background-repeat: no-repeat no-repeat;
     -fx-background-color: none;
 }
 
-#minimize_Button{
+#exit_button{
+    -fx-background-image: url("images/close.png");
+}
+
+#exit_button:hover{
+    -fx-background-image: url("images/close_hover.gif");
+}
+
+#minimize_button{
     -fx-background-image: url("images/minimize.png");
 }
 
-#minimize_Button:hover{
-    -fx-background-image: url("images/minimize_hover.png");
+#minimize_button:hover{
+    -fx-background-image: url("images/minimize_hover.gif");
+}
+
+
+#navbar_button{
+    -fx-background-image: url("images/navbar.png");
+}
+
+#navbar_button:hover{
+    -fx-background-image: url("images/navbar_hover.gif");
 }
 
 #top_bar{
-    -fx-background-color: #98c1d9;
-}
+    -fx-background-color: white;
 
-#menu_button{
-    -fx-background-image: url("images/menu.png");
-}
 
-#menu_button:hover{
-    -fx-background-image: url("images/menu_hover.png");
+    /*-fx-background-color: #98c1d9;*/
 }
 
 #messageEnc_textArea{
@@ -31,5 +43,37 @@
 
 #navBar_anchorpane{
     -fx-background-color: black;
+    -fx-opacity: 100%;
+}
+
+#navigationRightPane{
+    -fx-background-color: black;
     -fx-opacity: 80%;
+}
+
+.navBtn {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-insets: -1;
+    -fx-border-width: 3;
+    -fx-border-radius: 4;
+
+}
+
+.navBtn1{
+    -fx-border-color: #008CBA;
+}
+
+.navBtn1:hover {
+    -fx-background-color: #008CBA;
+    -fx-text-fill: white;
+}
+
+.navBtn2{
+    -fx-border-color: #4CAF50;
+}
+
+.navBtn2:hover {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
 }

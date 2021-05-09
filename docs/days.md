@@ -93,3 +93,11 @@
 - Working `Encrypt Message` Feature
 
 - Working `Navigation Menu` with `Animation`
+
+# Day 10
+
+## May 10th 2021
+
+### KeyNotes
+
+- worked on `Styling`

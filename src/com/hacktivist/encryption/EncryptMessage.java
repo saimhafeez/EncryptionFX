@@ -18,8 +18,25 @@ public class EncryptMessage extends LoadEncryptKeys{
         return encryptMsg;
     }
 
-    private int Encrypter(char ch){
-        System.out.println("-->" + keyList.size());
+    public String getDecryptedMessage(String userMsg){
+        String decryptMsg = "";
+        int [] dec_values = new int[userMsg.length()];
+
+        for(int j=0; j<userMsg.length(); j++){
+            dec_values[j] = userMsg.charAt(j);
+        }
+
+        for(int i=0; i<userMsg.length(); i++){
+            if(Decrypter(userMsg.charAt(i)) == 0){
+                decryptMsg = decryptMsg.concat(String.valueOf(userMsg.charAt(i)));
+            }else{
+                decryptMsg = decryptMsg.concat(String.valueOf(Decrypter(dec_values[i])));
+            }
+        }
+        return decryptMsg;
+    }
+
+    public int Encrypter(char ch){
         for(int i=0; i<keyList.size(); i++){
             if(ch == keyList.get(i).getUser_key()){
                 return keyList.get(i).getDec_value();
@@ -28,7 +45,7 @@ public class EncryptMessage extends LoadEncryptKeys{
         return 0;
     }
 
-    private char Decrypter(int dec){
+    public char Decrypter(int dec){
 
         for(int i=0; i<keyList.size(); i++){
             if(dec == keyList.get(i).getDec_value()){

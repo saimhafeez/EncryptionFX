@@ -7,36 +7,18 @@ import java.util.ArrayList;
 public abstract class LoadEncryptKeys {
     public static ArrayList<Keys> keyList = new ArrayList<>();
     private Keys key_new;
-    public String getResource(String rsc, String folderLocation) {
-        String val = "";
 
-        try {
-            Class cls = Class.forName("com.hacktivist.encryption.LoadEncryptKeys");
-
-            // returns the ClassLoader object associated with this Class
-            ClassLoader cLoader = cls.getClassLoader();
-
-            // input stream
-            InputStream i = cLoader.getResourceAsStream(folderLocation + rsc);
-            BufferedReader r = new BufferedReader(new InputStreamReader(i));
-
-            // reads each line
-            String l;
-            while((l = r.readLine()) != null) {
-                val = val + l;
-            }
-            i.close();
-        } catch(Exception e) {
-            System.out.println(e);
+    public void performAutomatedRequiredEvents(){
+        File requiredKeysFile = new File("src/com/hacktivist/encryption/keys.txt");
+        if(requiredKeysFile.exists()){
+            storeKeys();
+        }else {
+            makeKeysArray();
+            saveToFile();
         }
-        return val;
     }
 
-    public ArrayList<Keys> loadKeys(){
-        return keyList;
-    }
-
-    public void storeKeys() {
+    private void storeKeys() {
         try{
             //Class cls = Class.forName("com.hacktivist.encryption.LoadEncryptKeys");
             //ClassLoader cLoader = cls.getClassLoader();
@@ -61,7 +43,22 @@ public abstract class LoadEncryptKeys {
         System.out.println(keyList.size());
     }
 
-    public void makeKeysArray(){
+    private void saveToFile(){
+        try{
+            FileOutputStream file = new FileOutputStream("src/com/hacktivist/encryption/keys.txt");
+            ObjectOutputStream fileOutput = new ObjectOutputStream(file);
+
+            for(int i=0; i<keyList.size(); i++){
+                fileOutput.writeObject(keyList.get(i));
+            }
+            fileOutput.close();
+            //JOptionPane.showMessageDialog(null, "Successfully Saved!");
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+
+    private void makeKeysArray(){
         key_new = new Keys('A', 926);
         keyList.add(key_new);
         key_new = new Keys('B', 947);
@@ -167,7 +164,6 @@ public abstract class LoadEncryptKeys {
         keyList.add(key_new);
         key_new = new Keys('z', 20174);
         keyList.add(key_new);
-
         key_new = new Keys('1', 9777);
         keyList.add(key_new);
         key_new = new Keys('2', 9778);
@@ -180,28 +176,19 @@ public abstract class LoadEncryptKeys {
         keyList.add(key_new);
         key_new = new Keys('6', 9783);
         keyList.add(key_new);
-        key_new = new Keys('7', 65078);
+        key_new = new Keys('7', 9650);
         keyList.add(key_new);
-        key_new = new Keys('8', 65077);
+        key_new = new Keys('8', 9660);
         keyList.add(key_new);
         key_new = new Keys('9', 9553);
         keyList.add(key_new);
         key_new = new Keys('0', 12292);
         keyList.add(key_new);
-    }
-
-    public void saveToFile(){
-        try{
-            FileOutputStream file = new FileOutputStream("src/com/hacktivist/encryption/keys.txt");
-            ObjectOutputStream fileOutput = new ObjectOutputStream(file);
-
-            for(int i=0; i<keyList.size(); i++){
-                fileOutput.writeObject(keyList.get(i));
-            }
-            fileOutput.close();
-            //JOptionPane.showMessageDialog(null, "Successfully Saved!");
-        }catch(IOException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        key_new = new Keys('\n', 5827);
+        keyList.add(key_new);
+        key_new = new Keys('-', 43856);
+        keyList.add(key_new);
+        key_new = new Keys(' ', 43857);
+        keyList.add(key_new);
     }
 }

@@ -8,6 +8,10 @@
 
 - Issue Registered At `April 19 2021`
 
+### 02
+- Flaw in Algorithm `Anyone can copy and paste a single character 8 time and could bypass the password field and decrypt it`
+- Issue Registered At `May 11 2021`
+
 # Solved
 
 ### :)

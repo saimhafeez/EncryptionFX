@@ -10,7 +10,7 @@
 }
 
 #exit_button:hover{
-    -fx-background-image: url("images/close_hover.gif");
+    -fx-background-image: url("images/close_hover.png");
 }
 
 #minimize_button{
@@ -18,7 +18,7 @@
 }
 
 #minimize_button:hover{
-    -fx-background-image: url("images/minimize_hover.gif");
+    -fx-background-image: url("images/minimize_hover.png");
 }
 
 
@@ -27,13 +27,15 @@
 }
 
 #navbar_button:hover{
-    -fx-background-image: url("images/navbar_hover.gif");
+    -fx-background-image: url("images/navbar_hover.png");
+}
+
+#navbar_button:disabled{
+    -fx-background-image: url("images/navbar_hover.png");
 }
 
 #top_bar{
     -fx-background-color: white;
-
-
     /*-fx-background-color: #98c1d9;*/
 }
 
@@ -49,6 +51,18 @@
 #navigationRightPane{
     -fx-background-color: black;
     -fx-opacity: 80%;
+}
+
+#viewPassword_toggleButton{
+    -fx-background-color: white;
+    -fx-border-insets: -1;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-border-color: #008CBA;
+}
+
+#viewPassword_toggleButton:selected{
+    -fx-background-color: #008CBA;
 }
 
 .navBtn {
@@ -75,5 +89,14 @@
 
 .navBtn2:hover {
     -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.navBtn3{
+    -fx-border-color: #6C91BF;
+}
+
+.navBtn3:hover {
+    -fx-background-color: #6C91BF;
     -fx-text-fill: white;
 }

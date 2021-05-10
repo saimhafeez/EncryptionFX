@@ -101,3 +101,12 @@
 ### KeyNotes
 
 - worked on `Styling`
+
+# Day 11
+
+## May 11th 2021
+
+### KeyNotes
+
+- worked on `Exceptions`
+- Added new Pane `Decrypt message` and is fully functional now

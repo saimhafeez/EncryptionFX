@@ -15,6 +15,7 @@ public class Main extends Application {
 
     public static EncryptMessage encryptMessage = new EncryptMessage();
     public static Stage strprimaryStage;
+    public static final int PASSWORD_SIZE = 5;
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/com/hacktivist/dialogpane/StartupDialog_FXML.fxml"));
@@ -25,14 +26,7 @@ public class Main extends Application {
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         strprimaryStage = primaryStage;
         primaryStage.show();
-        //static EncryptMessage encryptMessage = new EncryptMessage();
         new StartupDialog_Controller().oneTimeRun(); //this sets the scene to main menu after splashScreen is completed
-        //encryptMessage.storeKeys();
-        //loadEncryptKeys.makeKeysArray();
-        //loadEncryptKeys.saveToFile();
-        //loadEncryptKeys.storeKeys();
-        //LoadEncryptKeys loadEncryptKeys = new LoadEncryptKeys();
-        //System.out.println(loadEncryptKeys.getResource("keys.txt", "com/hacktivist/encryption/"));
     }
 
     public static void main(String[] args) {

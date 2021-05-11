@@ -123,53 +123,6 @@
                      </children></AnchorPane>
                </children>
             </GridPane>
-            <AnchorPane fx:id="stackpane_msgEnc" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
-               <children>
-                  <Label alignment="CENTER" layoutX="231.0" layoutY="5.0" prefHeight="17.0" prefWidth="139.0" text="Message Encryption" textAlignment="CENTER" AnchorPane.leftAnchor="231.0" AnchorPane.rightAnchor="230.0">
-                     <font>
-                        <Font name="Verdana Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <ScrollPane layoutX="5.0" layoutY="22.0" prefHeight="125.0" prefWidth="590.0" style="-fx-background-color: none;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                     <content>
-                        <TextArea id="messageEnc_textArea" fx:id="msgEncryption_textArea" prefHeight="122.0" prefWidth="585.0" stylesheets="@MenuGUI_Styles.css" />
-                     </content>
-                  </ScrollPane>
-                  <Button fx:id="encrypt_button" layoutX="276.0" layoutY="221.0" mnemonicParsing="false" onAction="#encryptMessage_action" text="Encrypt">
-                     <graphic>
-                        <ImageView cache="true" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/encrypt_message.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Label fx:id="msgEncCheckList_Label01" layoutX="5.0" layoutY="183.0" text="Password Should be 8 Characters Long" />
-                  <Label fx:id="msgEncCheckList_Label02" layoutX="5.0" layoutY="204.0" text="Don't Use Same Characters 8 Times (ex. 00000000)" />
-                  <Label layoutX="5.0" layoutY="155.0" text="Set Password for More Security ?" />
-                  <RadioButton fx:id="masEncPass_radioButton" layoutX="191.0" layoutY="155.0" mnemonicParsing="false" onAction="#msgEncPassCheck_action" text="Yes" />
-                  <ImageView fx:id="passCheckList_imageView" fitHeight="29.0" fitWidth="39.0" layoutX="416.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/checkListWarning.png" />
-                     </image>
-                  </ImageView>
-                  <ScrollPane layoutX="8.0" layoutY="262.0" prefHeight="90.0" prefWidth="583.0" style="-fx-background-color: none;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                     <content>
-                        <TextArea fx:id="encMessage_textArea" editable="false" prefHeight="86.0" prefWidth="585.0" />
-                     </content>
-                  </ScrollPane>
-                  <ImageView fx:id="passwordIMG_imageView" cache="true" fitHeight="38.0" fitWidth="39.0" layoutX="226.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/password.png" />
-                     </image>
-                  </ImageView>
-                  <PasswordField fx:id="msgEncPass_passwordField" layoutX="260.0" layoutY="151.0" onKeyTyped="#checkPasswordRecommendation" />
-                  <ToggleButton id="viewPassword_toggleButton" fx:id="viewPass_toggleButton" layoutX="460.0" layoutY="151.0" mnemonicParsing="false" onAction="#vewPassword_action" prefHeight="29.0" prefWidth="102.0" stylesheets="@MenuGUI_Styles.css" text="UnHide">
-                     <graphic>
-                        <ImageView fx:id="viewPass_imageView" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic>
-                  </ToggleButton>
-               </children>
-            </AnchorPane>
             <AnchorPane fx:id="stackpane_msgDec" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
                <children>
                   <Label alignment="CENTER" layoutX="231.0" layoutY="5.0" prefHeight="17.0" prefWidth="139.0" text="Message Decryption" textAlignment="CENTER" AnchorPane.leftAnchor="231.0" AnchorPane.rightAnchor="230.0">
@@ -219,6 +172,53 @@
                   </ImageView>
                   <Label fx:id="decMsgLive_label" alignment="CENTER_RIGHT" layoutX="71.0" layoutY="225.0" prefHeight="17.0" prefWidth="226.0" text="Enter Message and Press Analyise" />
                   <Button layoutX="14.0" layoutY="221.0" mnemonicParsing="false" onAction="#analyseDecryptionMessage" text="Analyse" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="stackpane_msgEnc" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+               <children>
+                  <Label alignment="CENTER" layoutX="231.0" layoutY="5.0" prefHeight="17.0" prefWidth="139.0" text="Message Encryption" textAlignment="CENTER" AnchorPane.leftAnchor="231.0" AnchorPane.rightAnchor="230.0">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="5.0" layoutY="22.0" prefHeight="125.0" prefWidth="590.0" style="-fx-background-color: none;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                     <content>
+                        <TextArea id="messageEnc_textArea" fx:id="msgEncryption_textArea" prefHeight="122.0" prefWidth="585.0" stylesheets="@MenuGUI_Styles.css" />
+                     </content>
+                  </ScrollPane>
+                  <Button fx:id="encrypt_button" layoutX="276.0" layoutY="221.0" mnemonicParsing="false" onAction="#encryptMessage_action" text="Encrypt">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/encrypt_message.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Label fx:id="msgEncCheckList_Label01" layoutX="5.0" layoutY="183.0" text="Password Should be 8 Characters Long" />
+                  <Label fx:id="msgEncCheckList_Label02" layoutX="5.0" layoutY="204.0" text="Don't Use Same Characters 8 Times (ex. 00000000)" />
+                  <Label layoutX="5.0" layoutY="155.0" text="Set Password for More Security ?" />
+                  <RadioButton fx:id="masEncPass_radioButton" layoutX="191.0" layoutY="155.0" mnemonicParsing="false" onAction="#msgEncPassCheck_action" text="Yes" />
+                  <ImageView fx:id="passCheckList_imageView" fitHeight="29.0" fitWidth="39.0" layoutX="416.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/checkListWarning.png" />
+                     </image>
+                  </ImageView>
+                  <ScrollPane layoutX="8.0" layoutY="262.0" prefHeight="90.0" prefWidth="583.0" style="-fx-background-color: none;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                     <content>
+                        <TextArea fx:id="encMessage_textArea" editable="false" prefHeight="86.0" prefWidth="585.0" />
+                     </content>
+                  </ScrollPane>
+                  <ImageView fx:id="passwordIMG_imageView" cache="true" fitHeight="38.0" fitWidth="39.0" layoutX="226.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/password.png" />
+                     </image>
+                  </ImageView>
+                  <PasswordField fx:id="msgEncPass_passwordField" layoutX="260.0" layoutY="151.0" onKeyTyped="#checkPasswordRecommendation" />
+                  <ToggleButton id="viewPassword_toggleButton" fx:id="viewPass_toggleButton" layoutX="460.0" layoutY="151.0" mnemonicParsing="false" onAction="#vewPassword_action" prefHeight="29.0" prefWidth="102.0" stylesheets="@MenuGUI_Styles.css" text="UnHide">
+                     <graphic>
+                        <ImageView fx:id="viewPass_imageView" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </ToggleButton>
                </children>
             </AnchorPane>
          </children></StackPane>

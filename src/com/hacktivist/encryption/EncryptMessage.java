@@ -1,12 +1,56 @@
 package com.hacktivist.encryption;
 
+import com.hacktivist.main.Main;
+
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Random;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 public class EncryptMessage extends LoadEncryptKeys{
+
+    public String getEncryptMsg2(String userMsg){
+        String H0 = userMsg.substring(0, userMsg.length() - Main.PASSWORD_SIZE);
+        String H1 = userMsg.substring(userMsg.length() - Main.PASSWORD_SIZE);
+        String H2 = "";
+        ArrayList<Integer> digitList = new ArrayList<>();
+        do{
+            int random = SimpleOperations.generateRandomNumber(9);
+            if(!digitList.contains(random)){
+                digitList.add(random);
+            }
+        }while (digitList.size() != Main.PASSWORD_SIZE);
+        System.out.println(digitList);
+        for(int i=0; i<Main.PASSWORD_SIZE; i++){
+            H2 = H2.concat(String.valueOf(digitList.get(i)));
+        }
+        System.out.println("H0: " + H0);
+        System.out.println("H1: " + H1);
+        System.out.println("H2: " + H2);
+        String H2_sorted = SimpleOperations.getSortedString(H2);
+        System.out.println("H2_sorted: " + H2_sorted);
+        StringBuilder stringBuilder = new StringBuilder(H0);
+        String addCharacter = "";
+        for(int i=0; i<H2.length(); i++){
+            int index = Integer.parseInt(String.valueOf(H2_sorted.charAt(i)));
+            for(int j=0; j<H2.length(); j++){
+                if(Integer.parseInt(String.valueOf(H2.charAt(j))) == index){
+                    addCharacter = String.valueOf(H1.charAt(j));
+                    break;
+                }
+            }
+            stringBuilder.insert(index,addCharacter);
+        }
+        System.out.println(stringBuilder.toString());
+        return getEncryptMsg(stringBuilder.toString());
+    }
+
     public String getEncryptMsg(String userMsg){
         String encryptMsg = "";
         int [] dec_values = new int[userMsg.length()];
         for(int j=0; j<userMsg.length(); j++){
             dec_values[j] = Encrypter(userMsg.charAt(j));
-            System.out.println(dec_values[j]);
         }
         for(int i=0; i<userMsg.length(); i++){
             if(dec_values[i] == 0){

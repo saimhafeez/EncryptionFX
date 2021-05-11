@@ -10,7 +10,8 @@ public class InvalidEncryptionInputException extends Exception{
 
     public static void validate(String userInputMsg) throws InvalidEncryptionInputException {
         for(int i=0; i< userInputMsg.length(); i++){
-            if(Main.encryptMessage.Encrypter(userInputMsg.charAt(i)) == 0){
+            if(Main.encryptMessage.Encrypter(userInputMsg.charAt(i)) == 0 ||
+            Main.encryptMessage.Encrypter(userInputMsg.charAt(i)) == 9688){
                 throw new InvalidEncryptionInputException(userInputMsg.charAt(i));
             }
         }

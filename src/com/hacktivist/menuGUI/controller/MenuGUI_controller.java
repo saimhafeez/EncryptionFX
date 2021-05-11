@@ -79,14 +79,8 @@ public class MenuGUI_controller {
         decryptMsgTextAreaChanged(null);
         Tooltip.install(passCheckList_imageView, new Tooltip("Requirements Don't Meet!"));
         Main.encryptMessage.performAutomatedRequiredEvents();
-
-        try {
-            InvalidEncryptionInputException.validate("saim  /hafeez - son--\nwow");
-            System.out.println("hellow orld");
-        } catch (Exception e) {
-            e.getMessage();
-        }
-
+        String temp = Main.encryptMessage.getEncryptMsg2("hello12458");
+        System.out.println(temp);
     }
 
     @FXML
@@ -104,7 +98,6 @@ public class MenuGUI_controller {
             //fadePane(stackpane_nav,1);
             count = 0;
         }
-
     }
 
     private void slidePane(Pane pane, int direction, double initialPoint, int paneLocation){
@@ -383,7 +376,7 @@ public class MenuGUI_controller {
     public void decryptMessage_action(ActionEvent actionEvent) throws InvalidDecryptionInputException{
         try{
             InvalidDecryptionInputException.validate(decMsgInput_textArea.getText());
-            String decryptedMessage = Main.encryptMessage.getDecryptedMessage(decMsgInput_textArea.getText()).substring(0, decMsgInput_textArea.getText().length() - 8);
+            String decryptedMessage = Main.encryptMessage.getDecryptedMessage(decMsgInput_textArea.getText()).substring(0, decMsgInput_textArea.getText().length() - Main.PASSWORD_SIZE);
             decMsgOutput_textArea.setText(decryptedMessage);
         }catch (Exception e){
             e.getMessage();

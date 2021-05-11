@@ -194,8 +194,8 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Label fx:id="msgEncCheckList_Label01" layoutX="5.0" layoutY="183.0" text="Password Should be 8 Characters Long" />
-                  <Label fx:id="msgEncCheckList_Label02" layoutX="5.0" layoutY="204.0" text="Don't Use Same Characters 8 Times (ex. 00000000)" />
+                  <Label fx:id="msgEncCheckList_Label01" layoutX="5.0" layoutY="183.0" text="Password Should be 5 Characters Long" />
+                  <Label fx:id="msgEncCheckList_Label02" layoutX="5.0" layoutY="204.0" text="Don't Use Same Characters 5 Times (ex. 00000)" />
                   <Label layoutX="5.0" layoutY="155.0" text="Set Password for More Security ?" />
                   <RadioButton fx:id="masEncPass_radioButton" layoutX="191.0" layoutY="155.0" mnemonicParsing="false" onAction="#msgEncPassCheck_action" text="Yes" />
                   <ImageView fx:id="passCheckList_imageView" fitHeight="29.0" fitWidth="39.0" layoutX="416.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">

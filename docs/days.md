@@ -110,3 +110,11 @@
 
 - worked on `Exceptions`
 - Added new Pane `Decrypt message` and is fully functional now
+
+# Day 12
+
+## May 12th 2021
+
+### KeyNotes
+
+- Implemented the new `Algorithm` which `shuffles the password and message togeather and add reference to the password at the end`

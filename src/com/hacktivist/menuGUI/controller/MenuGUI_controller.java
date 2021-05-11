@@ -79,8 +79,6 @@ public class MenuGUI_controller {
         decryptMsgTextAreaChanged(null);
         Tooltip.install(passCheckList_imageView, new Tooltip("Requirements Don't Meet!"));
         Main.encryptMessage.performAutomatedRequiredEvents();
-        String temp = Main.encryptMessage.getEncryptMsg2("hello12458");
-        System.out.println(temp);
     }
 
     @FXML
@@ -206,7 +204,7 @@ public class MenuGUI_controller {
 
     @FXML
     private void checkPasswordRecommendation(KeyEvent inputMethodEvent) {
-        if(msgEncPass_passwordField.getText().length() != 8){
+        if(msgEncPass_passwordField.getText().length() != Main.PASSWORD_SIZE){
             msgEncCheckList_Label01.setStyle("-fx-text-fill: red");
             msgEncCheckList01 = false;
         }else{
@@ -222,7 +220,7 @@ public class MenuGUI_controller {
                 state = false;
             }
         }
-        if(state && msgEncPass_passwordField.getText().length() == 8){
+        if(state && msgEncPass_passwordField.getText().length() == Main.PASSWORD_SIZE){
             msgEncCheckList_Label02.setStyle("-fx-text-fill: green");
             msgEncCheckList02 = true;
         }else{
@@ -252,7 +250,7 @@ public class MenuGUI_controller {
                 System.out.println(msgEncPass_passwordField.getText());
                 userMessage = userMessage.concat(msgEncPass_passwordField.getText());
             }
-            String temp = Main.encryptMessage.getEncryptMsg(userMessage);
+            String temp = Main.encryptMessage.getEncryptedMsgModified(userMessage);
             encMessage_textArea.setText(temp);
             System.out.println(temp);
         } catch (InvalidEncryptionInputException e) {
@@ -329,7 +327,9 @@ public class MenuGUI_controller {
         if(decMsgInput_textArea.getText().length() < 9){
             //popup message here...
         }else{
-            passwordFetched = Main.encryptMessage.getDecryptedMessage(decMsgInput_textArea.getText().substring(decMsgInput_textArea.getText().length() - 8));
+            passwordFetched = Main.encryptMessage.getDecryptedMessageModified(decMsgInput_textArea.getText());
+            passwordFetched = passwordFetched.substring(passwordFetched.length() - Main.PASSWORD_SIZE);
+            //passwordFetched = Main.encryptMessage.getDecryptedMessage(decMsgInput_textArea.getText().substring(decMsgInput_textArea.getText().length() - 8));
             System.out.println("password: " + passwordFetched);
             decMsgLive_label.setText("Analysing Data");
             decMsgLive_imageView.setImage(new Image(loadingGif.toURI().toString()));
@@ -376,7 +376,9 @@ public class MenuGUI_controller {
     public void decryptMessage_action(ActionEvent actionEvent) throws InvalidDecryptionInputException{
         try{
             InvalidDecryptionInputException.validate(decMsgInput_textArea.getText());
-            String decryptedMessage = Main.encryptMessage.getDecryptedMessage(decMsgInput_textArea.getText()).substring(0, decMsgInput_textArea.getText().length() - Main.PASSWORD_SIZE);
+            String decryptedMessage = Main.encryptMessage.getDecryptedMessageModified(decMsgInput_textArea.getText());
+            decryptedMessage = decryptedMessage.substring(0, decryptedMessage.length() - Main.PASSWORD_SIZE);
+            //String decryptedMessage = Main.encryptMessage.getDecryptedMessage(decMsgInput_textArea.getText()).substring(0, decMsgInput_textArea.getText().length() - Main.PASSWORD_SIZE);
             decMsgOutput_textArea.setText(decryptedMessage);
         }catch (Exception e){
             e.getMessage();
@@ -390,9 +392,4 @@ public class MenuGUI_controller {
         decMsgLive_label.setText("Password Required to Decrypt");
     }
 
-    private void checkForValidInput(String userMsgInput) throws InvalidDecryptionInputException {
-        for(int i=0;i<userMsgInput.length(); i++){
-
-        }
-    }
 }

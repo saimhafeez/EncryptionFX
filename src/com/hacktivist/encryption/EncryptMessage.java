@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class EncryptMessage extends LoadEncryptKeys{
 
-    public String getEncryptMsg2(String userMsg){
+    public String getEncryptedMsgModified(String userMsg){
         String H0 = userMsg.substring(0, userMsg.length() - Main.PASSWORD_SIZE);
         String H1 = userMsg.substring(userMsg.length() - Main.PASSWORD_SIZE);
         String H2 = "";
@@ -28,7 +28,7 @@ public class EncryptMessage extends LoadEncryptKeys{
         System.out.println("H0: " + H0);
         System.out.println("H1: " + H1);
         System.out.println("H2: " + H2);
-        String H2_sorted = SimpleOperations.getSortedString(H2);
+        String H2_sorted = SimpleOperations.getSortedString(H2, 1);
         System.out.println("H2_sorted: " + H2_sorted);
         StringBuilder stringBuilder = new StringBuilder(H0);
         String addCharacter = "";
@@ -42,8 +42,9 @@ public class EncryptMessage extends LoadEncryptKeys{
             }
             stringBuilder.insert(index,addCharacter);
         }
-        System.out.println(stringBuilder.toString());
-        return getEncryptMsg(stringBuilder.toString());
+        String finalMsg = stringBuilder.toString() + H2;
+        System.out.println(finalMsg);
+        return getEncryptMsg(finalMsg);
     }
 
     public String getEncryptMsg(String userMsg){
@@ -60,6 +61,27 @@ public class EncryptMessage extends LoadEncryptKeys{
             }
         }
         return encryptMsg;
+    }
+
+    public String getDecryptedMessageModified(String userMsg){
+        String userMsgDec = getDecryptedMessage(userMsg);
+        String passReference = userMsgDec.substring(userMsgDec.length() - Main.PASSWORD_SIZE);
+        //System.out.println("reference: " + passReference);
+        String passReference_modified = SimpleOperations.getSortedString(passReference, 2);
+        //System.out.println(passReference_modified);
+        String password = "";
+        String message = userMsgDec.substring(0, userMsgDec.length() - Main.PASSWORD_SIZE);
+        StringBuilder stringBuilder = new StringBuilder(message);
+        for(int i=0; i<Main.PASSWORD_SIZE; i++){
+            //popup exception here
+            int index_mod = Integer.parseInt(String.valueOf(passReference_modified.charAt(i)));
+            int index = Integer.parseInt(String.valueOf(passReference.charAt(i)));
+            password = password.concat(String.valueOf(userMsgDec.charAt(index)));
+            stringBuilder = stringBuilder.deleteCharAt(index_mod);
+        }
+        //System.out.println(stringBuilder);
+        //System.out.println(password);
+        return stringBuilder + password;
     }
 
     public String getDecryptedMessage(String userMsg){
